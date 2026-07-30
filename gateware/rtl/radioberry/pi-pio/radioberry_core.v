@@ -66,7 +66,7 @@ parameter       DSIQ_FIFO_DEPTH = 16384;
 
 parameter 		FPGA_TYPE = 2'b10; //CL016 = 2'b01 ; CL025 = 2'b10
 localparam      VERSION_MAJOR = 8'd75;
-localparam      VERSION_MINOR = 8'd2;
+localparam      VERSION_MINOR = 8'd3;
 
 localparam int NR_CLAMP = (NR > 6) ? 6 : NR;
 localparam int NT_CLAMP = (NT > 1) ? 1 : NT;
@@ -82,6 +82,7 @@ logic			cwx_enabled = 1'b0;
 logic           tx_on, tx_on_iosync;
 logic           cw_on, cw_on_iosync;
 logic           cw_keydown = 1'b0, cw_keydown_ad9866sync;
+logic           ext_ptt, ext_ptt_ad9866sync;
 
 logic   [35:0]  dsiq_tdata;
 logic           dsiq_tready;   
@@ -301,6 +302,12 @@ sync sync_ad9866_cw_keydown (
   .sig_out(cw_keydown_ad9866sync)
 );
 
+sync sync_ptt_ad9866 (
+  .clock(clk_ad9866),
+  .sig_in(ext_ptt),
+  .sig_out(ext_ptt_ad9866sync)
+);
+
 sync sync_run_ad9866 (
   .clock(clk_ad9866),
   .sig_in(run),
@@ -368,6 +375,7 @@ radio_i
   .run(run_ad9866sync),
   .qmsec_pulse(qmsec_pulse_ad9866sync),
   .ext_keydown(cw_keydown_ad9866sync),
+  .ext_ptt(ext_ptt_ad9866sync),
 
   .tx_on(tx_on),
   .cw_on(cw_on),
@@ -464,6 +472,7 @@ control #(.CW(CW)) control_i (
 	.tx_on(tx_on),
 	.cw_on(cw_on),
 	.cw_keydown(cw_keydown),
+	.ext_pttout(ext_ptt),
   
 	.io_phone_tip(io_phone_tip),  
 	.io_phone_ring(io_phone_ring),  

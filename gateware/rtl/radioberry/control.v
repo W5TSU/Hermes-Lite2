@@ -12,6 +12,7 @@ module control(
 	cw_on,
 	
 	cw_keydown,
+	ext_pttout,
   
 	io_phone_tip,  
 	io_phone_ring,  
@@ -42,6 +43,7 @@ input           cmd_rqst;
 input           tx_on;
 input           cw_on;
 output          cw_keydown;
+output          ext_pttout;
 
 input           io_phone_tip;
 input           io_phone_ring;
@@ -115,6 +117,8 @@ end
 
 debounce de_phone_tip(.clean_pb(ext_cwkey), .pb(~io_phone_tip), .clk(clk), .msec_pulse(msec_pulse));
 debounce de_phone_ring(.clean_pb(clean_ring), .pb(~io_phone_ring), .clk(clk), .msec_pulse(msec_pulse));
+
+assign ext_pttout = ext_ptt;
 
 generate
   case (CW)
