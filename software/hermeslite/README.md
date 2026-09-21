@@ -1,6 +1,13 @@
 Hermes-Lite Python Module
 =========================
 
+- `hermeslite.py` — the module itself: device discovery (`discover*`), the `HermesLite` control class,
+  and gateware update helpers (`update_gateware`/`update_gateware_github`; see
+  [`../../gateware/README.md`](../../gateware/README.md#loading-gateware-onto-the-radio)).
+- `hermeslite.ipynb` — the Jupyter notebook mentioned below.
+- `debug.py` / `VCDWriter.py` — capture and write protocol traffic as VCD waveforms for inspection in a
+  waveform viewer, e.g. alongside `debug.gtkw` (a GTKWave save file) in GTKWave.
+
 This is a Python module to allow alternate command and control of a Hermes-Lite 2.0. It can be run before or at the same time as standard SDR software is in use. It is recommended to make any changes before standard SDR software is started. It uses port 1025. The purpose is to allow configuration of new, experimental or non-openhpsdr features. For example, setting the TX buffer latency, configuring the external clocks, and synchronizing multiple radios. It is not intended to replace standard SDR software. The intent is that useful features will eventually be adopted by standard SDR software once matured and proven here.
 
 # Installation
