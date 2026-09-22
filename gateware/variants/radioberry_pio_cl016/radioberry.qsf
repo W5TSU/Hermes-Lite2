@@ -199,7 +199,7 @@ set_global_assignment -name TOP_LEVEL_ENTITY radioberry
 set_global_assignment -name SDC_FILE "../../boards/radioberry-pio/timing.sdc"
 
 
-set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.1 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "25.1std.0 Lite Edition"
 
 set_global_assignment -name FAMILY "Cyclone 10 LP"
 set_global_assignment -name DEVICE_FILTER_PACKAGE "ANY QFP"
