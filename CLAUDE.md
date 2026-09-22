@@ -122,3 +122,17 @@ touch.
   (generated/vendored artifacts, not hand-maintained source).
 - `docs/` is a built Sphinx/GitHub Pages site (served at hermeslite.com via `docs/CNAME`) — its HTML is
   generated output, not a source of truth to edit directly.
+
+## Agent skills
+
+### Issue tracker
+
+Issues live as GitHub issues in `W5TSU/Hermes-Lite2`, managed via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default five canonical labels (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: `CONTEXT.md` + `docs/adr/` at the repo root (created lazily by `/domain-modeling`). See `docs/agents/domain.md`.

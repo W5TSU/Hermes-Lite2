@@ -33,7 +33,10 @@ directory naming) is a `localparam` near the top of `rtl/hermeslite_core.v`. It 
 
 ## Building
 
-Requires Quartus tools (`quartus_sh`, `quartus_cpf`) on `PATH`.
+Requires Quartus tools (`quartus_sh`, `quartus_cpf`) on `PATH`. No Quartus install handy? See
+[`../docker/quartus/`](../docker/quartus/README.md) for a containerized Quartus Prime Lite 23.1 build
+that covers the Radioberry (Cyclone 10 LP) variants (compile-only, no JTAG/USB passthrough). The main
+Hermes-Lite board variants (Cyclone IV E) need the much older Quartus II ~13.x and aren't covered there.
 
 ```sh
 # Build one variant
